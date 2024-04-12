@@ -1,8 +1,6 @@
 <h1>Here's all our cats:</h1>
-<ol>
+<ul>
     <% @cats.each do |ele| %>
-        <li>
-            <%= render 'cat', cat: ele, action: :index %>
-        </li>
+        <%= render 'cat', cat: ele, action: :index %>
     <% end %>
-</ol>
+</ul>
