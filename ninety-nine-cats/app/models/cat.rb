@@ -1,3 +1,5 @@
+require 'action_view'
+
 # == Schema Information
 #
 # Table name: cats
@@ -12,7 +14,7 @@
 #  updated_at  :datetime         not null
 #
 class Cat < ApplicationRecord
-
+    include ActionView::Helpers::DateHelper
     CAT_COLORS = ["orange", "white", "black", "beige", "gray"]
 
     validates :birth_date, :name, presence: true
@@ -25,5 +27,9 @@ class Cat < ApplicationRecord
             errors.add(:birth_date, "can't be in the future")
         end
     end 
+
+    def age
+        time_ago_in_words(birth_date)
+    end
 
 end
