@@ -1,0 +1,8 @@
+<h1>Here's all our cats:</h1>
+<ol>
+    <% @cats.each do |ele| %>
+        <li>
+            <%= render 'cat', cat: ele, action: :index %>
+        </li>
+    <% end %>
+</ol>
